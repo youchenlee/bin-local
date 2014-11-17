@@ -1,0 +1,8 @@
+#!/bin/bash
+
+VAL=$1
+if [ -z "$VAL" ]; then
+    VAL=50
+fi
+
+sudo tee /sys/class/backlight/intel_backlight/brightness <<< $VAL

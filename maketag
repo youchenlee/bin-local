@@ -1,0 +1,25 @@
+#!/bin/bash
+case `uname -s` in
+    Linux|Darwin)
+        CTAGS="ctags"
+    ;;
+    FreeBSD)
+        CTAGS="exctags"
+    ;;
+esac
+
+CSCOPE="cscope"
+
+rm -f TAGS
+files=`find . -name '*.php' -o -name '*.inc'`
+echo -n "Building Tags for $files ";
+    $CTAGS -a -R  -f TAGS \
+    --exclude="\.svn,\.git" \
+    --tag-relative=yes \
+    --PHP-kinds=+cdvf \
+    --langmap=php:+.inc \
+    --regex-PHP='/abstract class ([^ ]*)/\1/c/' \
+    --regex-PHP='/interface ([^ ]*)/\1/c/' \
+    --regex-PHP='/(public |static |abstract |protected |private )*function ([^ (]*)/\2/f/' $files
+    #find `pwd` -name '*.php' -or -name '*.inc' | xargs $CSCOPE -b > /dev/null 2>&1
+echo "Done!";

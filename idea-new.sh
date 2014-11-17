@@ -1,0 +1,1 @@
+/home/copyleft/idea-IC-139.225.3/bin/idea.sh

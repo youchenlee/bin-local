@@ -1,0 +1,9 @@
+#!/usr/bin/php
+<?php
+$name = $argv[1];
+$f = fopen($name, 'r');
+
+$d = fread($f, 200000000);
+
+$a = json_decode($d, true);
+print_r($a);

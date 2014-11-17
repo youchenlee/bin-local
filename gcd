@@ -1,0 +1,2 @@
+#!/bin/sh
+gcalcli --detail-descr --detail-location agenda

@@ -1,0 +1,1 @@
+/home/copyleft/PhpStorm-139.173/bin/phpstorm.sh
