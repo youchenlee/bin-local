@@ -1,0 +1,8 @@
+#!/bin/bash
+# Source: http://unix.stackexchange.com/questions/60778/how-can-i-get-an-alert-when-my-battery-is-about-to-die-in-linux-mint
+
+battery_level=`acpi -b | grep -P -o '[0-9]+(?=%)'`
+if [ $battery_level -le 10 ]
+then
+    notify-send "Battery low" "Battery level is ${battery_level}%!"
+fi
